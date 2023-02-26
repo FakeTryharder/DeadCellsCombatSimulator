@@ -10,10 +10,11 @@ import javax.swing.JPanel;
 import characters.*;
 import characters.enemies.*;
 import interfaces.*;
+import listeners.*;
 
 public class Panel extends JPanel {
 
-	List<Drawable> charactersList = new ArrayList<>();
+	List<GenericCharacter> charactersList = new ArrayList<>();
 	int 
 		initialEnemyX = Frame.WIDTH - 2 * Enemy.WIDTH, 
 		initialEnemyY = Frame.HEIGHT - 2 * Enemy.HEIGHT;
@@ -23,7 +24,10 @@ public class Panel extends JPanel {
 		super();
 		
 		charactersList.add(new ShieldBearer(initialEnemyX, initialEnemyY, -1));
-		charactersList.add(new Beheaded(0, 0, 1));
+		charactersList.add(new Beheaded(0, 0));
+		BeheadedMouseActions.character = (Beheaded) charactersList.get(1);
+		addMouseListener(new BeheadedMouseActions());
+		
 	}
 
 	public void paint(Graphics g) {

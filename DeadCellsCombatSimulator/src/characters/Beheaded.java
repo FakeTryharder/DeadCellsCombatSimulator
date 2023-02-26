@@ -8,9 +8,13 @@ import weapons.*;
 public class Beheaded extends GenericCharacter {
 
 	GenericWeapon weapon;
+	public static boolean isAttacking, isBlocking;
+	public static int HP, MaxHP;
 	
-	public Beheaded(int x, int y, int velocityX) {
-		super(x, y, velocityX, 0);
+	public Beheaded(int x, int y) {
+		super(x, y, 0, 0);
+		HP = 100;
+		MaxHP = 100;
 	}
 	
 	@Override
@@ -24,8 +28,7 @@ public class Beheaded extends GenericCharacter {
 
 	@Override
 	public int baseAttack() {
-		// TODO Auto-generated method stub
-		return 0;
+		return weapon.attack();
 	}
 
 }

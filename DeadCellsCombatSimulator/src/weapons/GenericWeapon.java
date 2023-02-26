@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GenericWeapon {
+public abstract class GenericWeapon {
 
-	private int damage, criticalDamage;
+	protected int damage, criticalDamage;
 	private ArrayList<GenericModifier> modifiers;
 
 	public GenericWeapon(int damage, int criticalDamage, GenericModifier[] modifiers) {
@@ -54,5 +54,7 @@ public class GenericWeapon {
 	public void setModifiers(ArrayList<GenericModifier> modifiers) {
 		this.modifiers = modifiers;
 	}
+
+	public abstract int attack();
 
 }
